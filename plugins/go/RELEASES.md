@@ -2,6 +2,15 @@
 
 À chaque version : les nouveautés, et les ACTIONS DE MIGRATION que tout agent doit proposer puis appliquer sur son projet (rituel de version de la compétence start : comparer la version du plugin installé, lue dans .claude-plugin/plugin.json du plugin, à la ligne « Version du kit vue » du START du projet ; si elles diffèrent, lire ce fichier et dérouler les actions des versions intermédiaires, dans l'ordre ; les actions structurantes passent par un checkpoint).
 
+## 0.16.1 (20/10/2026)
+
+Préparation de la diffusion publique. L'application de bureau ne suit pas une marketplace sur un dépôt PRIVÉ (copie serveur figée au 25/08 chez le concepteur, alors que les marketplaces publiques se rafraîchissent) : décision de Cyril du 20/10, le plugin est désormais publié dans une vitrine PUBLIQUE qui ne contient que les plugins, le dépôt de travail restant privé.
+
+1. Mentions personnelles neutralisées dans la source (prénom d'une collaboratrice, chemin d'un poste, liste des boîtes d'un bureau de poste) : remplacées par des exemples génériques.
+2. Aucun changement de comportement des compétences.
+
+Actions de migration : aucune. Mettre la ligne « Version du kit vue : 0.16.1 ». Sur les postes qui suivaient l'ancienne marketplace privée, la nouvelle adresse sera annoncée par courrier une fois la vitrine en ligne.
+
 ## 0.16.0 (17/10/2026)
 
 Dixième compétence : **extinction**. Demande de Cyril du 10/10 (dictée en session Skoole, transmise par courrier, chantier validé le 17/10) : le soir, dire `/extinction` pour que l'agent finisse, clôture, puis éteigne le Mac.
