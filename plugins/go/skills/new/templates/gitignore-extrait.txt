@@ -1,0 +1,10 @@
+# Kit go : hors versionnement
+_ADD/
+_DOCS/pieces/
+_GEN/
+_TRASH/
+.amqrc
+.env
+.env.local
+.env.*.local
+.DS_Store

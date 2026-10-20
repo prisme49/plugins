@@ -1,0 +1,14 @@
+{
+  "name": "prisme49",
+  "description": "Les plugins publics de Cyril Verglas pour Claude (Claude Code, application de bureau, Cowork).",
+  "owner": {
+    "name": "Cyril Verglas"
+  },
+  "plugins": [
+    {
+      "name": "go",
+      "source": "./plugins/go",
+      "description": "Le kit qui donne une mémoire à vos projets menés avec des agents IA : rituels start/end, checkpoints, courrier inter-agents, documentation, images, migration douce, extinction du poste."
+    }
+  ]
+}

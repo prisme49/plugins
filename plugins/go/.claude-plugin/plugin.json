@@ -1,0 +1,16 @@
+{
+  "name": "go",
+  "version": "0.16.0",
+  "description": "Go : le kit qui donne une mémoire à vos projets menés avec des agents IA. Structure _LLM (START, TODO, JOURNAL, CANAL, RULES, checkpoints), dépôts _ADD (audio transcrit compris), documentation _DOCS, images _GEN, corbeille _TRASH, rituels start et end, courrier inter-agents (inbox/send, bureau de poste AMQ), génération d'images Gemini, migration douce des projets existants. N'importe quel agent reprend le projet avec une trace complète, et l'humain garde le manche.",
+  "author": {
+    "name": "Cyril Verglas"
+  },
+  "keywords": [
+    "projet",
+    "pilotage",
+    "sessions",
+    "checkpoint",
+    "go"
+  ],
+  "license": "MIT"
+}

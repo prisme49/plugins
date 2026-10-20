@@ -1,0 +1,46 @@
+# .env.local : secrets et configuration locale du projet
+# JAMAIS commité (couvert par .gitignore). Seul l'humain remplit les valeurs.
+# Règle pour les agents : ne jamais recopier une VALEUR de ce fichier dans une
+# conversation, un journal, un commit ou une restitution. Seuls les noms de
+# variables peuvent être cités.
+# Supprimer les sections inutiles au projet, ajouter celles qui manquent.
+
+# --- Application ---
+NEXT_PUBLIC_APP_URL=
+ADMIN_EMAIL=
+
+# --- Déploiement (Dokploy) ---
+DOKPLOY_URL=
+DOKPLOY_TOKEN=
+
+# --- Base de données ---
+DATABASE_URL=
+DIRECT_URL=
+
+# --- Supabase ---
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+SUPABASE_SECRET_KEY=
+SUPABASE_ACCESS_TOKEN=
+
+# --- IA et génération d'images ---
+ANTHROPIC_API_KEY=
+GEMINI_API_KEY=
+GOOGLE_API_KEY=
+OPENAI_API_KEY=
+
+# --- Google Cloud ---
+GCP_PROJECT=
+GCS_BACKUP_BUCKET=
+
+# --- Email (SMTP / Brevo) ---
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USER=
+SMTP_PASSWORD=
+EMAIL_FROM=
+BREVO_API_KEY=
+
+# --- Analytics (Umami) ---
+UMAMI_URL=
+UMAMI_WEBSITE_ID=

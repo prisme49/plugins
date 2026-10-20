@@ -1,0 +1,4 @@
+{
+  "root": "/Users/<compte>/Desktop/_claude_code/mailroom",
+  "project": "<handle-de-ce-poste>"
+}
