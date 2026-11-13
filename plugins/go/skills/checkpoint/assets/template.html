@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,34 +44,6 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--accent);display:flex;align-items:center;gap:8px}
 .eyebrow::before{content:"";width:9px;height:9px;background:var(--accent);border-radius:2px}
-.prefs{margin-left:auto;display:inline-flex;gap:6px;letter-spacing:0;text-transform:none}
-.prefs button{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line);
-  background:var(--card);border-radius:999px;padding:3px 10px}
-.prefs button:hover{border-color:var(--line2)}
-.prefs button.on{color:var(--ink);border-color:var(--ink)}
-
-/* ---- variante compacte ---- */
-html.compact body{font-size:14px}
-html.compact .wrap{padding:22px 16px 110px;max-width:900px}
-html.compact h1{font-size:21px;margin:6px 0 6px}
-html.compact .meta{margin-bottom:6px}
-html.compact .sec{margin-top:20px}
-html.compact .sec-head{margin-bottom:9px;padding-bottom:6px}
-html.compact .ess li{padding:4px 0}
-html.compact .card{padding:12px 14px}
-html.compact .dec{margin-bottom:9px}
-html.compact .dec-top{margin-bottom:5px}
-html.compact .q{font-size:15px}
-html.compact .detail,html.compact .liens{margin-bottom:8px;font-size:13px}
-html.compact .opts{gap:7px;margin-bottom:8px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-html.compact .opts.img{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
-html.compact .opt{padding:8px 10px}
-html.compact .opt-desc{font-size:12.5px}
-html.compact textarea{min-height:42px;padding:7px 10px}
-html.compact .chips{margin-top:8px}
-html.compact .lbl{margin:0 0 3px}
-html.compact .drop{padding:12px}
-html.compact .bar-in{padding:9px 16px}
 h1{font-size:27px;font-weight:700;letter-spacing:-.015em;margin:10px 0 8px}
 .meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
 .meta span{font-family:var(--mono);font-size:11.5px;color:var(--muted);
@@ -420,7 +392,6 @@ const DATA = {
     mode: "multi",                           // multi | single | ordre
     propositions: [ { id: "S1", label: "...", desc: "...", reco: true } ]
   },
-  affichage: { theme: null, compact: null },
   session: { cloture: false, canal: null }
 };
 
@@ -715,30 +686,7 @@ function renderVisuels(){
   updateProgress();
 }
 
-const PREF = { theme:null, compact:null };
-try { PREF.theme = localStorage.getItem("pd-theme"); PREF.compact = localStorage.getItem("pd-compact"); } catch (e) {}
-function prefSave(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }
-function isDark(){
-  if (PREF.theme) return PREF.theme === "dark";
-  if (DATA.affichage && DATA.affichage.theme) return DATA.affichage.theme === "dark";
-  return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
-}
-function isCompact(){
-  if (PREF.compact) return PREF.compact === "1";
-  if (DATA.affichage && typeof DATA.affichage.compact === "boolean") return DATA.affichage.compact;
-  return window.innerWidth < 760;
-}
-function applyPrefs(){
-  const dark = isDark(), compact = isCompact();
-  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-  document.documentElement.classList.toggle("compact", compact);
-  const bt = $("#prefTheme"), bc = $("#prefCompact");
-  if (bt) { bt.textContent = dark ? "sombre" : "clair"; bt.classList.toggle("on", dark); }
-  if (bc) { bc.textContent = compact ? "compact" : "a\u00e9r\u00e9"; bc.classList.toggle("on", compact); }
-}
-if (window.matchMedia) {
-  try { window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){ if (!PREF.theme) applyPrefs(); }); } catch (e) {}
-}
+function applyPrefs(){ document.documentElement.setAttribute("data-theme", "dark"); }
 /* ---- blocs : chaque bloc sait se rendre, le preset dit lesquels et dans quel ordre.
    Un bloc sans matière ne s'affiche pas : c'est ce qui évite de rabâcher un
    essentiel là où il n'apporte rien. ---- */
@@ -811,8 +759,7 @@ const BLOCKS = {
 function render(){
   document.title = KIND_TITLE[DATA.type] + " : " + DATA.titre;
   let h = '<header><div class="eyebrow">Checkpoint<span class="kind">' + esc(KIND_LABEL[DATA.type]) + '</span>'
-    + '<span class="prefs"><button type="button" id="prefTheme" title="Basculer clair / sombre"></button>'
-    + '<button type="button" id="prefCompact" title="Basculer aéré / compact"></button></span></div>'
+    + '</div>'
     + '<h1>' + esc(DATA.titre) + '</h1>'
     + '<div class="meta">' + (DATA.agent ? '<span>' + esc(DATA.agent) + '</span>' : '')
     + (DATA.date ? '<span>' + esc(DATA.date) + '</span>' : '')
@@ -893,8 +840,6 @@ document.addEventListener("click", function(e){
     return;
   }
 
-  if (e.target.id === "prefTheme") { PREF.theme = isDark() ? "light" : "dark"; prefSave("pd-theme", PREF.theme); applyPrefs(); return; }
-  if (e.target.id === "prefCompact") { PREF.compact = isCompact() ? "0" : "1"; prefSave("pd-compact", PREF.compact); applyPrefs(); return; }
   if (e.target.id === "zoomBg") { $("#zoomBox").classList.toggle("light"); return; }
   const sm = e.target.closest("[data-smode]");
   if (sm) {

@@ -191,7 +191,6 @@ const DATA = {
     mode: "multi",                         // multi | single | ordre
     propositions: [ { id: "S1", label: "...", desc: "...", reco: true } ]
   },
-  affichage: { theme: null, compact: null },
   session: { cloture: false, canal: null }
 };
 ```
@@ -212,9 +211,9 @@ téléchargement déclenché par la page, liens download et data: compris ;
 l'export des PNG annotés ne marche donc que depuis le fichier local
 `_LLM/checkpoints/*.html` ouvert en file://. Quand l'humain est à distance,
 les captures se collent dans le CHAT ; au poste, le fichier local fait tout. L'artefact
-suit le thème du système (clair ou sombre) et propose un mode compact ;
-l'humain bascule les deux en haut de page, son choix est mémorisé par le
-navigateur quand c'est possible. Si aucun type ne convient, utiliser `choix` avec des options sur
+est TOUJOURS en thème sombre et en mise en page standard (décision de Cyril du
+13/11/2026) : plus de bascule clair / sombre ni aéré / compact, et un champ
+`affichage` dans DATA est sans effet. Si aucun type ne convient, utiliser `choix` avec des options sur
 mesure : ne jamais inventer d'autre structure.
 
 ## Protocole RETOUR (à parser quand l'utilisateur le colle)

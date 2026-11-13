@@ -2,6 +2,17 @@
 
 À chaque version : les nouveautés, et les ACTIONS DE MIGRATION que tout agent doit proposer puis appliquer sur son projet (rituel de version de la compétence start : comparer la version du plugin installé, lue dans .claude-plugin/plugin.json du plugin, à la ligne « Version du kit vue » du START du projet ; si elles diffèrent, lire ce fichier et dérouler les actions des versions intermédiaires, dans l'ordre ; les actions structurantes passent par un checkpoint).
 
+## 0.17.0 (13/11/2026)
+
+L'affichage du checkpoint est FIXÉ, sur demande de Cyril : toujours en thème sombre, toujours en mise en page standard.
+
+1. **Thème sombre imposé** : la bascule clair / sombre disparaît de l'en-tête, le thème du système n'est plus suivi.
+2. **Mise en page standard imposée** : la bascule aéré / compact disparaît, la variante compacte est retirée du gabarit (elle s'appliquait aussi d'office sous 760 px de large).
+3. Les préférences mémorisées par le navigateur (`pd-theme`, `pd-compact`) et le champ `affichage` de DATA sont désormais ignorés : un ancien réglage « clair » ou « compact » ne revient pas. Vérifié dans un navigateur avec ces trois pièges posés.
+4. Inchangé : le fond clair ou sombre de la VISIONNEUSE d'images agrandies (bouton « Fond »), qui sert à juger un visuel sur les deux fonds.
+
+Actions de migration : aucune. Mettre la ligne « Version du kit vue : 0.17.0 ».
+
 ## 0.16.1 (20/10/2026)
 
 Préparation de la diffusion publique. L'application de bureau ne suit pas une marketplace sur un dépôt PRIVÉ (copie serveur figée au 25/08 chez le concepteur, alors que les marketplaces publiques se rafraîchissent) : décision de Cyril du 20/10, le plugin est désormais publié dans une vitrine PUBLIQUE qui ne contient que les plugins, le dépôt de travail restant privé.
